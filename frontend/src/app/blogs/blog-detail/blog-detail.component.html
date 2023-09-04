@@ -1,0 +1,16 @@
+<div class="container" *ngIf="selectedBlog">
+  <div class="row">
+    <div class="col-5">
+      <img src="" alt="resim" />
+    </div>
+    <div class="col-7">
+      <h1 class="h3">{{ selectedBlog.title }}</h1>
+      <h3 class="h5">{{ selectedBlog.subtitle }}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p class="card-text">{{ selectedBlog.description }}</p>
+    </div>
+  </div>
+</div>

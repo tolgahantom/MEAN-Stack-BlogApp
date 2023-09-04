@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Category Name</th>
+      <th scope="col">Operator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categories; let i = index">
+      <th scope="row">
+        {{ i + 1 }}
+      </th>
+      <td>{{ category.categoryName }}</td>
+      <td>
+        <button
+          class="btn btn-warning text-white mx-1"
+          [routerLink]="['/category-create', category.id]"
+        >
+          Update Category
+        </button>
+        <button class="btn btn-danger" (click)="deleteCategory(category.id)">
+          Delete Category
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

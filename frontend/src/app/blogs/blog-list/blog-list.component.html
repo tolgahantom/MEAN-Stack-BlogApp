@@ -1,0 +1,14 @@
+<div class="d-flex gap-3 flex-wrap" *ngIf="blogs">
+  <div class="card" style="width: 18rem" *ngFor="let blog of blogs">
+    <img src="..." class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ blog.title }}</h5>
+      <p class="card-text">
+        {{ blog.subtitle }}
+      </p>
+      <a class="btn btn-primary" [routerLink]="['/blogs', blog.id]"
+        >Go Detail</a
+      >
+    </div>
+  </div>
+</div>

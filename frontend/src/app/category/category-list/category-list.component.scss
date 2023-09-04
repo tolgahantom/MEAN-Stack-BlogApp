@@ -1,0 +1,18 @@
+.category-list {
+  background-color: darkgray;
+  padding: 10px;
+  .category-list-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-transform: uppercase;
+
+    .category-list-item {
+      &:hover {
+        opacity: 0.8;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
