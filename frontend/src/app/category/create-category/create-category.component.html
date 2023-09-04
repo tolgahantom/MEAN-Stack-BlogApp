@@ -13,18 +13,20 @@
 
   <button
     type="button"
-    class="btn btn-primary"
-    (click)="saveProductToDb(name)"
-    *ngIf="!isEditMode"
-  >
-    Add Category
-  </button>
-  <button
-    type="button"
     class="btn btn-warning text-white"
     (click)="updateCategory(name)"
-    *ngIf="isEditMode"
   >
     Update Category
+  </button>
+</form>
+
+<form *ngIf="!isEditMode">
+  <div class="mb-3">
+    <label for="name" class="form-label">Category Name</label>
+    <input #name type="text" name="name" id="name" class="form-control" />
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="saveProductToDb(name)">
+    Add Category
   </button>
 </form>
