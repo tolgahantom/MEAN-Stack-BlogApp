@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CategoryService } from '../category.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-category',
@@ -11,6 +12,10 @@ export class CreateCategoryComponent {
   isEditMode: boolean = false;
   selectedCategory: any;
   selectedCategoryId: number;
+
+  categoryCreateForm = new FormGroup({
+    categoryName: new FormControl('', [Validators.required]),
+  });
 
   constructor(
     private categoryService: CategoryService,

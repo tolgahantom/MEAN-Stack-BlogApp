@@ -26,3 +26,25 @@ module.exports.getBlogById = async (req, res) => {
     console.log(err);
   }
 };
+
+module.exports.createBlog = async (req, res) => {
+  try {
+    console.log("create sayfası");
+    const { blogTitle, blogSubtitle, blogDescription } = req.body;
+    await db.execute(
+      `insert into blogs(title, url,subtitle,description, image, homepage, createdAt, updatedAt) values(?,?,?,?,?,?,?,?)`,
+      [
+        blogTitle,
+        "url",
+        blogSubtitle,
+        blogDescription,
+        "1.jpeg",
+        1,
+        "2023-07-08 06:40:32",
+        "2023-07-08 06:40:32",
+      ]
+    );
+  } catch (err) {
+    console.log(err);
+  }
+};

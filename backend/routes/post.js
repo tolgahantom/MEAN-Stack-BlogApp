@@ -5,7 +5,8 @@ const router = express.Router();
 const db = require("../data/db.js");
 
 // http/localhost/3000/posts
-
-router.get("/", postController.getAllBlog);
+router.post("/create", postController.createBlog);
 router.get("/:id", postController.getBlogById);
+router.get("/", postController.getAllBlog);
+
 module.exports = router;

@@ -15,4 +15,21 @@ export class BlogService {
   getBlogById(id: number): Observable<any> {
     return this.http.get(this.url + '/' + id);
   }
+
+  createBlog(blogTitle: any, blogSubtitle: any, blogDescription: any) {
+    const body = {
+      blogTitle: blogTitle,
+      blogSubtitle: blogSubtitle,
+      blogDescription: blogDescription,
+    };
+
+    this.http.post<void>(this.url + '/create', body).subscribe(
+      (response) => {
+        console.log('Veri gönderme başarılı: ', response);
+      },
+      (error) => {
+        console.error('Veri gönderme hatası: ', error);
+      }
+    );
+  }
 }

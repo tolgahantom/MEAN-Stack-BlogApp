@@ -49,7 +49,6 @@ module.exports.deleteCategory = async (req, res) => {
 module.exports.updateCategory = async (req, res) => {
   try {
     const { categoryName, categoryId, url } = req.body;
-    console.log(req.body);
     await db.execute(`update categories set categoryName=?, url=? where id=?`, [
       categoryName,
       url,

@@ -20,13 +20,34 @@
   </button>
 </form>
 
-<form *ngIf="!isEditMode">
+<form *ngIf="!isEditMode" [formGroup]="categoryCreateForm">
   <div class="mb-3">
     <label for="name" class="form-label">Category Name</label>
-    <input #name type="text" name="name" id="name" class="form-control" />
+    <input
+      #name
+      type="text"
+      name="name"
+      id="name"
+      class="form-control"
+      formControlName="categoryName"
+    />
+  </div>
+  <div
+    *ngIf="
+      categoryCreateForm.get('categoryName')!.hasError('required') &&
+      categoryCreateForm.get('categoryName')!.touched
+    "
+    class="alert alert-danger w-100 mt-2"
+  >
+    Name is required.
   </div>
 
-  <button type="button" class="btn btn-primary" (click)="saveProductToDb(name)">
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="saveProductToDb(name)"
+    [disabled]="categoryCreateForm.invalid"
+  >
     Add Category
   </button>
 </form>

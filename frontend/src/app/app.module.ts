@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryService } from './category/category.service';
 import { BlogService } from './blogs/blog.service';
 import { CategoryEditComponent } from './category/category-edit/category-edit.component';
+import { BlogCreateComponent } from './blogs/blog-create/blog-create.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -23,8 +25,16 @@ import { CategoryEditComponent } from './category/category-edit/category-edit.co
     BlogDetailComponent,
     CreateCategoryComponent,
     CategoryEditComponent,
+    BlogCreateComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CKEditorModule,
+  ],
   providers: [CategoryService, BlogService],
   bootstrap: [AppComponent],
 })
